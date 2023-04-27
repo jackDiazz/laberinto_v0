@@ -11,8 +11,9 @@ public class Casilla{
 	// Indexes en la matriz
 	private int indexI;
 	private int indexJ;
-	// Array de vecinos por vecinos sin vecinos sin visitar 
+	// Array de vecinos sin visitar
 	boolean[] vecinosDisponibles = new boolean[4]; 
+	boolean[] vecinosVisitados = new boolean[4];
 	// Otros atributos
 	private boolean explorada = false;
 	private boolean camino = false;
@@ -20,6 +21,8 @@ public class Casilla{
 
 	// Constructor
 	public Casilla(boolean vecIz, boolean vecSup, boolean vecInf, boolean vecDer, int vsv, int i, int j){
+		explorada = false;
+		camino = false;
 		this.vecinoIzquierdo = vecIz;
 		this.vecinoSuperior = vecSup;
 		this.vecinoInferior = vecInf;
@@ -27,25 +30,21 @@ public class Casilla{
 		this.vecinosSinVisitar = vsv;
 		this.indexI = i;
 		this.indexJ = j;
-		if(vecIz == true){
+		if(vecIz){
 			vecinosDisponibles[0] = true;
-		} else {
-			vecinosDisponibles[0] = false;
+			vecinosVisitados[0] = false;
 		}
-		if(vecSup == true){
+		if(vecSup){
 			vecinosDisponibles[1] = true;
-		} else {
-			vecinosDisponibles[1] = false;
+			vecinosVisitados[1] = false;
 		}
-		if(vecInf == true){
+		if(vecInf){
 			vecinosDisponibles[2] = true;
-		} else {
-			vecinosDisponibles[2] = false;
+			vecinosVisitados[2] = false;
 		}
-		if(vecDer == true){
+		if(vecDer){
 			vecinosDisponibles[3] = true;
-		} else {
-			vecinosDisponibles[3] = false;
+			vecinosVisitados[3] = false;
 		}
 	}	
 
@@ -97,6 +96,7 @@ public class Casilla{
 	public void setVecinos(int index, boolean valor){
 		this.vecinosDisponibles[index] = valor;
 	}
+	public void setVisitados(int index, boolean valor){ this.vecinosVisitados[index] = valor; }
 	public void vecinosPorVisitar(int v){
 		this.vecinosSinVisitar = v;
 	}
@@ -106,5 +106,7 @@ public class Casilla{
 	public void setBordeDerecho(boolean borDer){
 		bordeDerecho = borDer;
 	}
+
+	public void setCamino(){ camino = true; }
 
 }
