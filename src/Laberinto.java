@@ -1,5 +1,4 @@
-//import estructuras.*;
-import java.util.NoSuchElementException;
+import estructuras.*;
 import java.util.Random;
 
 public class Laberinto{
@@ -17,6 +16,23 @@ public class Laberinto{
 		this.largo = largo;
 		generado = null;
 		resuelto = null;
+	}
+
+	// Getters
+	public int getAncho(){
+		return ancho;
+	}
+
+	public int getLargo(){
+		return largo;
+	}
+
+	public String getGenerado(){
+		return generado;
+	}
+
+	public Casilla[][] getTablero(){
+		return tablero;
 	}
 
 	// Método auxiliar para laberinto en string.
@@ -63,7 +79,6 @@ public class Laberinto{
 		int i = generaCoord.nextInt(largo);
 		int j = generaCoord.nextInt(ancho);
 		Casilla aux = tablero[i][j];
-		// System.out.println("Coordenadas actuales: " + aux.getIndexI() + ", " + aux.getIndexJ());
 
 		// Marcarla como visitada
 		aux.explorada();
@@ -144,8 +159,8 @@ public class Laberinto{
 		int k = generaCoord.nextInt(largo);
 		int l = generaCoord.nextInt(ancho);
 		Casilla fin = tablero[k][l];
-		System.out.println("Coordenadas del inicio: " + aux.getIndexI() + ", " + aux.getIndexJ());
-		System.out.println("Coordenadas del final: " + fin.getIndexI() + ", " + fin.getIndexJ());
+		//System.out.println("Coordenadas del inicio: " + aux.getIndexI() + ", " + aux.getIndexJ());
+		//System.out.println("Coordenadas del final: " + fin.getIndexI() + ", " + fin.getIndexJ());
 
 		// Marcarla como visitada
 		aux.explorada();
@@ -195,6 +210,7 @@ public class Laberinto{
 					aux.camino(true);
 					p.push(aux);
 				} else {
+					aux.camino(false);
 					p.pop();
 					try {
 						aux = (Casilla) p.top();
