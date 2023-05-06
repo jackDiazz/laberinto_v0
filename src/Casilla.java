@@ -121,8 +121,6 @@ public class Casilla{
 		bordeIzquierdo = borIzq;
 	}
 
-	public void setCamino(){ camino = true; }
-
 	public void setInicio(boolean esInicio){ inicio = esInicio; }
 	public void setFin(boolean esFin){ fin = esFin; }
 
