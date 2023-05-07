@@ -7,12 +7,15 @@ public class GenerarLaberinto{
 	public static void main(String[] args){
 
 		System.out.println("¡Bienvenid@ al generador de Laberintos!");
-		Scanner sc = new Scanner(System.in);
+		// Scanner sc = new Scanner(System.in);
 
-		System.out.println("Introduzca el largo del tablero: ");
-		int largo = sc.nextInt();
-		System.out.println("Introduzca el ancho del tablero: ");
-		int ancho = sc.nextInt();
+		// System.out.println("Introduzca el largo del tablero: ");
+		// int largo = sc.nextInt();
+		// System.out.println("Introduzca el ancho del tablero: ");
+		// int ancho = sc.nextInt();
+
+		int largo = Integer.parseInt(args[0]);
+		int ancho = Integer.parseInt(args[1]);
 
 		Laberinto l = new Laberinto(ancho, largo);
 		l.generaTablero();
